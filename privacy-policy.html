@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TabCoffer — Privacy Policy</title>
+<meta name="description" content="TabCoffer privacy policy: what is stored on your device, when the extension uses the network, and how to delete your data.">
+<link rel="icon" href="icons/icon128.png">
+<style>
+:root{
+  --accent:#1d4ed8;
+  --accent-2:#38bdf8;
+  --bg:#f5f8fc;
+  --surface:#ffffff;
+  --ink:#20304a;
+  --body:#4b5870;
+  --muted:#64718a;
+  --line:#e2e8f2;
+  --tint:#eef3fb;
+  --tint:color-mix(in srgb, var(--accent) 8%, #ffffff);
+  --tint-strong:#e5edfa;
+  --tint-strong:color-mix(in srgb, var(--accent) 14%, #ffffff);
+  --shadow:0 18px 45px rgba(32,48,74,.10);
+  --shadow-soft:0 8px 24px rgba(32,48,74,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{
+  margin:0;
+  color:var(--body);
+  background:radial-gradient(900px 420px at 100% -8%, color-mix(in srgb, var(--accent-2) 12%, #ffffff) 0%, rgba(255,255,255,0) 70%), var(--bg);
+  font-family:"Segoe UI Variable Text","Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{display:block;max-width:100%}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+button,select{font:inherit}
+[hidden]{display:none !important}
+::selection{background:color-mix(in srgb, var(--accent) 22%, #ffffff);color:var(--ink)}
+:focus-visible{outline:2px solid color-mix(in srgb, var(--accent) 55%, #ffffff);outline-offset:3px}
+.wrap{width:min(1120px, calc(100% - 40px));margin:0 auto}
+.topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.topbar-inner{display:flex;align-items:center;gap:18px;height:70px}
+.brand{display:flex;align-items:center;gap:11px;color:var(--ink);font-size:16px;font-weight:750;letter-spacing:-.015em;white-space:nowrap}
+.brand:hover{text-decoration:none}
+.brand img{width:32px;height:32px;border-radius:9px;background:#fff;border:1px solid var(--line)}
+.nav-links{display:flex;align-items:center;gap:20px;margin-left:auto;font-size:13.5px;font-weight:650}
+.nav-links a{color:var(--muted)}
+.nav-links a:hover{color:var(--accent);text-decoration:none}
+.top-actions{display:flex;align-items:center;gap:9px;margin-left:auto}
+.nav-links + .top-actions{margin-left:0}
+.icon-btn{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--muted)}
+.icon-btn:hover{color:var(--accent);border-color:color-mix(in srgb, var(--accent) 26%, var(--line));text-decoration:none}
+.lang{
+  appearance:none;-webkit-appearance:none;
+  border:1px solid var(--line);
+  background-color:#fff;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364718a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 10px center;
+  background-size:12px;
+  color:var(--ink);
+  border-radius:10px;
+  padding:9px 32px 9px 11px;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+  max-width:150px;
+}
+.lang:hover{border-color:color-mix(in srgb, var(--accent) 26%, var(--line))}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:0 20px;border-radius:12px;border:1px solid transparent;font-weight:700;font-size:14.5px;line-height:1.2;transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 12px 26px color-mix(in srgb, var(--accent) 26%, transparent)}
+.btn-primary:hover{background:color-mix(in srgb, var(--accent) 90%, var(--ink));box-shadow:0 15px 30px color-mix(in srgb, var(--accent) 30%, transparent)}
+.btn-secondary{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn-secondary:hover{border-color:color-mix(in srgb, var(--accent) 28%, var(--line))}
+.btn-quiet{background:transparent;color:var(--muted);padding:0 8px}
+.btn-quiet:hover{color:var(--accent)}
+.site-footer{margin-top:48px;border-top:1px solid var(--line);background:rgba(255,255,255,.8);padding:32px 0}
+.footer-inner{display:flex;flex-wrap:wrap;gap:20px 32px;align-items:center;justify-content:space-between}
+.footer-brand{display:flex;align-items:center;gap:11px;color:var(--ink);font-size:14px;font-weight:700}
+.footer-brand img{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:#fff}
+.footer-brand .copy{display:block;color:var(--muted);font-size:12px;font-weight:500;line-height:1.4;margin-top:1px}
+.footer-links{display:flex;flex-wrap:wrap;gap:9px 18px;align-items:center;font-size:13px;font-weight:600}
+.footer-links a{color:var(--muted)}
+.footer-links a:hover{color:var(--accent);text-decoration:none}
+@media (max-width:900px){
+  .nav-links{display:none}
+  .topbar-inner{height:62px}
+  .wrap{width:calc(100% - 32px)}
+}
+@media (max-width:560px){
+  .brand span{display:none}
+  .lang{max-width:124px}
+  .site-footer{padding:26px 0}
+  .footer-inner{align-items:flex-start;flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none !important;animation:none !important}
+}
+
+.policy-hero{padding:42px 0 8px}
+.policy-hero-card{position:relative;overflow:hidden;background:linear-gradient(135deg,#ffffff 0%, color-mix(in srgb, var(--accent) 7%, #ffffff) 58%, color-mix(in srgb, var(--accent-2) 16%, #ffffff) 100%);border:1px solid var(--line);border-radius:26px;padding:42px 46px 36px;box-shadow:var(--shadow)}
+.policy-hero-card::after{content:"";position:absolute;width:360px;height:360px;right:-110px;top:-160px;border-radius:50%;border:1px solid color-mix(in srgb, var(--accent) 22%, #ffffff);box-shadow:0 0 0 48px color-mix(in srgb, var(--accent) 5%, transparent);pointer-events:none}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid color-mix(in srgb, var(--accent) 22%, var(--line));color:var(--accent);font-size:11.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+.policy-hero h1{position:relative;z-index:1;margin:16px 0 0;color:var(--ink);font-size:clamp(34px,4.4vw,50px);line-height:1.06;letter-spacing:-.035em;font-weight:800}
+.policy-hero h1 .h1-sub{color:var(--accent);font-weight:780}
+.summary{position:relative;z-index:1;max-width:860px;margin:16px 0 20px;color:var(--body);font-size:15.5px;line-height:1.75}
+.summary strong{color:var(--ink);font-weight:700}
+.chips{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.8);color:var(--ink);font-size:12.5px;font-weight:650}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent-2)}
+.updated{position:relative;z-index:1;display:flex;align-items:center;gap:7px;margin:18px 0 0;color:var(--muted);font-size:12.5px;font-weight:550}
+.updated svg{color:var(--accent)}
+.policy-layout{display:grid;grid-template-columns:272px minmax(0,1fr);gap:28px;align-items:start;padding:32px 0 38px}
+.toc{position:sticky;top:92px;max-height:calc(100vh - 120px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 17px;box-shadow:var(--shadow-soft)}
+.toc-title{margin:2px 0 12px;color:var(--ink);font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+#p-toc{display:grid;gap:3px}
+#p-toc a{display:grid;grid-template-columns:26px minmax(0,1fr);gap:8px;align-items:baseline;padding:8px 10px;border-radius:10px;border:1px solid transparent;color:var(--muted);font-size:14px;line-height:1.45}
+#p-toc a span{color:color-mix(in srgb, var(--accent) 58%, var(--muted));font-size:11.5px;font-weight:800;letter-spacing:.04em}
+#p-toc a:hover{background:var(--tint);color:var(--ink);text-decoration:none}
+#p-toc a.active{background:var(--tint);border-color:color-mix(in srgb, var(--accent) 18%, var(--line));color:var(--ink)}
+#p-toc a.active span{color:var(--accent)}
+.policy-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px 32px;box-shadow:var(--shadow-soft)}
+.policy-card + .policy-card{margin-top:15px}
+.policy-card h2{display:flex;align-items:baseline;gap:11px;margin:0 0 16px;color:var(--ink);font-size:21px;line-height:1.3;letter-spacing:-.015em;font-weight:760}
+.policy-num{flex:none;padding:4px 8px;border-radius:8px;background:var(--tint);color:var(--accent);font-size:11.5px;font-weight:800;letter-spacing:.04em}
+.policy-body{color:var(--body);font-size:15px;line-height:1.75;overflow-wrap:anywhere}
+.policy-body p{margin:0 0 14px}
+.policy-body p:last-child{margin-bottom:0}
+.policy-body strong{color:var(--ink);font-weight:700}
+.policy-body em{color:var(--body)}
+.policy-body a{color:var(--accent);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.policy-body a:hover{color:color-mix(in srgb, var(--accent) 80%, var(--ink))}
+.policy-body code{display:inline;padding:1px 6px;border:1px solid var(--line);border-radius:6px;background:#f3f6fb;color:var(--ink);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em}
+.policy-body ul{display:grid;gap:8px;margin:0 0 15px;padding:0;list-style:none}
+.policy-body ul:last-child{margin-bottom:0}
+.policy-body li{position:relative;padding-left:21px}
+.policy-body li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--accent-2)}
+.policy-body h3{margin:21px 0 8px;color:var(--ink);font-size:15.5px;line-height:1.4;font-weight:750}
+.policy-body h3:first-child{margin-top:0}
+.policy-body .note{margin:15px 0 0;padding:13px 15px;border-left:3px solid var(--accent);border-radius:10px;background:var(--tint);color:var(--body);font-size:13.5px;line-height:1.65}
+.table-wrap{margin:15px 0;overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.policy-body table{width:100%;min-width:480px;border-collapse:collapse;font-size:13.5px;line-height:1.55}
+.policy-body th{padding:10px 13px;border-bottom:1px solid var(--line);background:#f4f7fc;color:var(--ink);text-align:left;font-weight:700}
+.policy-body td{padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+.policy-body th:first-child,.policy-body td:first-child{min-width:150px}
+.policy-body tr:last-child td{border-bottom:none}
+.policy-body table code{white-space:nowrap}
+@media (max-width:900px){
+  .policy-hero{padding:26px 0 4px}
+  .policy-hero-card{padding:30px 24px 28px;border-radius:22px}
+  .policy-layout{grid-template-columns:1fr;gap:16px;padding:22px 0 30px}
+  .toc{position:static;max-height:none;padding:14px}
+  #p-toc{grid-template-columns:1fr 1fr}
+  .policy-card{padding:23px 20px}
+  .policy-card h2{font-size:19px}
+}
+@media (max-width:600px){
+  #p-toc{grid-template-columns:1fr}
+  .policy-card{padding:21px 17px}
+  .policy-body{font-size:14.5px}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html"><img src="icons/icon128.png" alt="" width="32" height="32"><span>TabCoffer</span></a>
+    <div class="top-actions">
+      <a class="icon-btn" href="https://github.com/annmax1983/TabCoffer" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-1.05-.01-1.9-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0 1 12 5.96c.85 0 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg></a>
+      <select class="lang" id="p-lang" aria-label="Language"><option value="en">English</option><option value="zh">简体中文</option><option value="ja">日本語</option><option value="de">Deutsch</option><option value="es">Español</option><option value="fr">Français</option></select>
+      <a class="icon-btn" href="index.html" aria-label="Home" title="Home"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v10h12V10"/></svg></a>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="policy-hero">
+    <div class="wrap">
+      <div class="policy-hero-card">
+        <span class="eyebrow" id="p-eyebrow">Privacy Policy</span>
+        <h1><span id="p-h1">TabCoffer</span> <span class="h1-sub" id="p-h1-sub">Privacy Policy</span></h1>
+        <p class="summary" id="p-summary">TabCoffer keeps your blocklist and settings in your browser. Site blocking runs locally; the only data that can leave your device is what your browser's own account sync copies, plus the optional Pro licence check. No analytics, no account, no advertising.</p>
+        <div class="chips" id="p-chips"><span class="chip">Runs on your device</span><span class="chip">No analytics</span><span class="chip">No account</span><span class="chip">Licence optional</span></div>
+        <p class="updated"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span id="p-updated">Last updated: November 2026</span></p>
+      </div>
+    </div>
+  </section>
+  <div class="wrap policy-layout">
+    <aside class="toc">
+      <p class="toc-title" id="p-toc-title">On this page</p>
+      <nav id="p-toc" aria-label="On this page">
+<a href="#section-1"><span>01</span>Data Collection</a>
+<a href="#section-2"><span>02</span>Permissions</a>
+<a href="#section-3"><span>03</span>Data Storage &amp; Browser Sync</a>
+<a href="#section-4"><span>04</span>Third-Party Services</a>
+<a href="#section-5"><span>05</span>Open Source</a>
+<a href="#section-6"><span>06</span>Data retention &amp; deletion</a>
+<a href="#section-7"><span>07</span>Changes to this policy</a>
+<a href="#section-8"><span>08</span>Contact</a>
+      </nav>
+    </aside>
+    <div id="p-sections">
+<article class="policy-card" id="section-1"><h2><span class="policy-num">01</span>Data Collection</h2><div class="policy-body"><p>TabCoffer does <strong>not</strong> collect your browsing data:</p><ul><li>Browsing history or URLs visited</li><li>Page text, images, or content</li><li>Cookies or advertising identifiers</li><li>Usage analytics or telemetry</li></ul><p>The only data that can reach our server is what the optional licence check sends, and only after you activate a licence: a random installation identifier, browser name and version, interface language, timezone, user agent, and the request IP address (kept for rate limiting only). Section 04 describes this in full.</p></div></article>
+<article class="policy-card" id="section-2"><h2><span class="policy-num">02</span>Permissions</h2><div class="policy-body"><p>TabCoffer requests minimal permissions:</p><ul><li><strong>declarativeNetRequest</strong> — Blocks websites using declarative rules. Does not read page content.</li><li><strong>storage</strong> — Saves your blocklist, timers and settings in your browser. If account sync is on, your browser may copy them to your other devices; nothing is sent to TabCoffer servers.</li><li><strong>alarms</strong> — Manages temporary bypass timers. No background tracking.</li><li><strong>activeTab</strong> — Only accesses the current tab when you interact with the extension.</li><li><strong>Content script on twelve supported sites</strong> — Runs only on YouTube, Instagram, TikTok, Facebook, Reddit, Snapchat, VK, Pinterest, Threads, LinkedIn, X and Xiaohongshu, and only while Surgical Blocking is switched on. It locates the site’s own short-video shelf or recommendation feed and adds one CSS class to hide it. It does not read, store, copy or transmit page content, and it sends nothing anywhere.</li><li><strong>Host access to api.annmax1983.com</strong> — Used only to activate and validate an optional licence.</li></ul><div class="note">The <code>&lt;all_urls&gt;</code> host permission is required because you choose the blocked sites at runtime, so they cannot be listed in the package in advance. It is used to install a declarativeNetRequest redirect rule for the domains you add, and for nothing else. TabCoffer only acts on sites you explicitly block, or on feeds you explicitly hide.</div></div></article>
+<article class="policy-card" id="section-3"><h2><span class="policy-num">03</span>Data Storage &amp; Browser Sync</h2><div class="policy-body"><p>Your blocklist and settings are stored with <code>storage.sync</code>, the browser's own account sync. If you are signed in, Google, Microsoft or Mozilla may copy them to your other computers. The developer operates no sync server and cannot read this data. Uninstalling removes the local copy; a copy already in your browser account is controlled by the browser vendor and can be removed in the browser's sync settings. The optional password is stored the same way, as a salted SHA-256 hash — never the plaintext.</p></div></article>
+<article class="policy-card" id="section-4"><h2><span class="policy-num">04</span>Third-Party Services</h2><div class="policy-body"><p>Core blocking features make zero network requests. Data can leave your device in two cases. If you enable the browser's own account sync, Google, Microsoft or Mozilla may copy your blocklist and settings to your other computers; the developer operates no sync server and cannot read that copy. If you voluntarily activate a paid VKT Pro licence, a random install identifier and browser metadata are sent to <code>api.annmax1983.com</code> to activate and validate the licence. The licence request never includes your blocklist, browsing history or personal data. Our licence server records the IP address of these requests solely for rate limiting and abuse prevention — never for profiling, advertising, or sharing with third parties.</p></div></article>
+<article class="policy-card" id="section-5"><h2><span class="policy-num">05</span>Open Source</h2><div class="policy-body"><p>TabCoffer is open-source. No ads, no advertising trackers, no analytics, no hidden data collection.</p></div></article>
+<article class="policy-card" id="section-6"><h2><span class="policy-num">06</span>Data retention &amp; deletion</h2><div class="policy-body"><p>Your settings and content stay in your browser until you delete them in the extension or uninstall it. Uninstalling removes the extension's local data. Nothing is retained on our servers, because your content is never sent to them. If you enabled a feature that uses your browser account's sync, a copy may remain in that account. You can manage or remove it in your browser's sync settings.</p></div></article>
+<article class="policy-card" id="section-7"><h2><span class="policy-num">07</span>Changes to this policy</h2><div class="policy-body"><p>If this policy changes, the revised version will be published on this page with a new date. Material changes will be noted in the extension's release notes.</p></div></article>
+<article class="policy-card" id="section-8"><h2><span class="policy-num">08</span>Contact</h2><div class="policy-body"><p>Questions about this policy? Email <a href="mailto:support@annmax1983.com">support@annmax1983.com</a> or open an issue on <a href="https://github.com/annmax1983/TabCoffer" target="_blank" rel="noopener">GitHub</a>.</p></div></article>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img src="icons/icon128.png" alt="" width="30" height="30">
+      <div>TabCoffer<span class="copy">© 2026 TabCoffer</span></div>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="index.html" id="p-footer-home">Home</a>
+      <a href="privacy-policy.html" id="p-footer-privacy">Privacy Policy</a>
+      <a href="https://github.com/annmax1983/TabCoffer" target="_blank" rel="noopener" id="p-footer-github">GitHub</a>
+      <a href="https://annmax1983.com/extensions/tabcoffer" target="_blank" rel="noopener" id="p-footer-site">Website</a>
+      <a href="mailto:support@annmax1983.com" id="p-footer-email">Email</a>
+    </nav>
+  </div>
+</footer>
+<script>
+const MODEL = {"langs":{"en":{"summary":"TabCoffer keeps your tab sessions on your device. It reads only tab titles, addresses and icons, and it never sends your sessions anywhere.","sections":[{"t":"What is stored","html":"Saved sessions — each with a name, creation time and the list of tabs (title, URL, favicon URL, pinned state) — are stored in <code>chrome.storage.local</code> on your device. A small settings object holds your preferred sort order. Nothing is written to a server."},{"t":"What is read","html":"TabCoffer reads the title, URL and favicon URL of tabs when you save a session. It never reads page content, form fields, cookies, browsing history or bookmarks."},{"t":"Network access","html":"Saving, restoring, searching local sessions, renaming and exporting make no network requests. The only network call is the optional Pro licence check to <code>api.annmax1983.com</code>, which happens when you activate a licence and about every two hours afterwards. That request carries your licence key, a random install ID and browser metadata (browser, language, timezone, user agent) — never your sessions, tab titles or URLs."},{"t":"Who can see your sessions","html":"Only you, on this device. TabCoffer has no account system, no analytics, no advertising and no third-party scripts. Sessions are not synced to any cloud service by TabCoffer."},{"t":"Removing your data","html":"Delete individual sessions from the popup at any time. Uninstalling the extension removes all sessions and settings stored by TabCoffer. Export a JSON backup first if you want to keep them."},{"t":"Permissions explained","html":"<code>tabs</code> reads the titles and addresses of your tabs so they can be saved and reopened. <code>storage</code> keeps sessions locally. <code>alarms</code> schedules the periodic licence check for Pro users."},{"t":"Children and sensitive data","html":"TabCoffer is not directed at children and does not knowingly collect personal data. Because a session can contain any URL you choose to save, avoid saving pages that hold sensitive personal information if you share this device."},{"t":"Contact","html":"Questions about privacy can be sent to support@annmax1983.com."}],"ui":{"navFeatures":"Features","navPlans":"Plans","navPrivacy":"Privacy","navSupport":"Support","eyebrow":"Privacy policy","title":"Your tabs stay on your device","lead":"A plain-language account of what TabCoffer stores, what it reads and when it uses the network.","lastUpdated":"Last updated","navTitle":"On this page","ctaGet":"Get TabCoffer","footerMore":"More tools","footerPrivacy":"Privacy","footerGithub":"Repository","footerSite":"Official site"}},"zh":{"summary":"TabCoffer 把标签会话留在你的设备上。它只读取标签标题、网址和图标，绝不把会话发送到任何地方。","sections":[{"t":"保存了什么","html":"会话（含名称、创建时间和标签列表：标题、网址、图标地址、固定状态）保存在本机的 <code>chrome.storage.local</code>。另有一个很小的设置对象记录排序偏好。没有任何数据写入服务器。"},{"t":"读取了什么","html":"保存会话时，TabCoffer 只读取标签的标题、网址和图标地址，不读取网页正文、表单、Cookie、浏览历史或书签。"},{"t":"网络访问","html":"保存、恢复、搜索本地会话、重命名和导出都不发起网络请求。唯一的网络请求是可选的 Pro 许可证校验：激活许可证时以及之后大约每两小时向 <code>api.annmax1983.com</code> 发送一次，内容只有许可证密钥、随机安装标识和浏览器元数据（浏览器、语言、时区、UA），绝不包含会话、标签标题或网址。"},{"t":"谁能看到你的会话","html":"只有你，在这台设备上。TabCoffer 没有账号系统、没有统计、没有广告、没有第三方脚本，也不会把会话同步到任何云服务。"},{"t":"如何删除数据","html":"随时在弹窗中删除单个会话。卸载扩展会删除 TabCoffer 保存的全部会话和设置。想保留的话请先导出 JSON 备份。"},{"t":"权限说明","html":"<code>tabs</code> 用于读取标签标题和网址以便保存与重开；<code>storage</code> 用于把会话保存在本机；<code>alarms</code> 用于为 Pro 用户安排周期性的许可证校验。"},{"t":"儿童与敏感数据","html":"TabCoffer 不面向儿童，也不会有意收集个人信息。由于会话可以包含你选择保存的任何网址，若在共用设备上使用，请避免保存含敏感信息的页面。"},{"t":"联系方式","html":"隐私问题可发送至 support@annmax1983.com。"}],"ui":{"navFeatures":"功能","navPlans":"方案","navPrivacy":"隐私","navSupport":"支持","eyebrow":"隐私政策","title":"你的标签只留在你的设备上","lead":"用大白话说明 TabCoffer 存了什么、读了什么、什么时候联网。","lastUpdated":"最后更新","navTitle":"本页内容","ctaGet":"获取 TabCoffer","footerMore":"更多工具","footerPrivacy":"隐私","footerGithub":"仓库","footerSite":"官网"}},"ja":{"summary":"TabCoffer はタブセッションを端末内に保管します。読み取るのはタブのタイトル・URL・アイコンのみで、セッションを外部に送ることはありません。","sections":[{"t":"保存されるもの","html":"セッション（名前、作成時刻、タブ一覧：タイトル、URL、アイコン URL、固定状態）はこの端末の <code>chrome.storage.local</code> に保存されます。並び替え設定用の小さなオブジェクトもあります。サーバーへ書き込まれるものはありません。"},{"t":"読み取られるもの","html":"セッション保存時に、TabCoffer はタブのタイトル・URL・アイコン URL のみを読み取ります。本文、フォーム、Cookie、履歴、ブックマークは読み取りません。"},{"t":"ネットワークアクセス","html":"保存・復元・ローカル検索・改名・書き出しではネットワーク要求は発生しません。唯一の通信は任意の Pro ライセンス確認で、有効化時とその後おおよそ 2 時間ごとに <code>api.annmax1983.com</code> へ送信します。内容はライセンスキー、ランダムなインストール ID、ブラウザー情報（種類、言語、タイムゾーン、UA）のみで、セッション・タイトル・URL は含まれません。"},{"t":"セッションを見られる人","html":"この端末のあなただけです。アカウント、解析、広告、サードパーティ製スクリプトはありません。TabCoffer がセッションをクラウドへ同期することもありません。"},{"t":"データの削除","html":"ポップアップからいつでも個別のセッションを削除できます。拡張機能をアンインストールすると、TabCoffer が保存したセッションと設定はすべて削除されます。残したい場合は先に JSON を書き出してください。"},{"t":"権限の説明","html":"<code>tabs</code> は保存・再オープンのためにタイトルと URL を読み取ります。<code>storage</code> はセッションのローカル保存、<code>alarms</code> は Pro ユーザーの定期的なライセンス確認に使います。"},{"t":"子どもと機密データ","html":"TabCoffer は子ども向けではなく、個人データを意図的に収集しません。セッションには保存した任意の URL が含まれるため、端末を共有している場合は機密情報を含むページを保存しないでください。"},{"t":"お問い合わせ","html":"プライバシーに関するご質問は support@annmax1983.com へ。"}],"ui":{"navFeatures":"機能","navPlans":"プラン","navPrivacy":"プライバシー","navSupport":"サポート","eyebrow":"プライバシーポリシー","title":"タブはあなたの端末に残ります","lead":"TabCoffer が何を保存し、何を読み、いつ通信するのかを平易に説明します。","lastUpdated":"最終更新","navTitle":"このページの内容","ctaGet":"TabCoffer を入手","footerMore":"他のツール","footerPrivacy":"プライバシー","footerGithub":"リポジトリ","footerSite":"公式サイト"}},"de":{"summary":"TabCoffer bewahrt deine Tab-Sitzungen auf deinem Gerät. Es liest nur Titel, Adressen und Icons der Tabs und sendet Sitzungen nirgendwohin.","sections":[{"t":"Was gespeichert wird","html":"Sitzungen — jeweils mit Name, Erstellungszeit und der Tab-Liste (Titel, URL, Favicon-URL, angeheftet) — liegen in <code>chrome.storage.local</code> auf deinem Gerät. Ein kleines Einstellungsobjekt merkt sich die Sortierung. Nichts wird an einen Server geschrieben."},{"t":"Was gelesen wird","html":"Beim Speichern liest TabCoffer nur Titel, URL und Favicon-URL der Tabs. Seiteninhalte, Formulare, Cookies, Verlauf und Lesezeichen werden nie gelesen."},{"t":"Netzwerkzugriff","html":"Speichern, Wiederherstellen, lokale Suche, Umbenennen und Exportieren verursachen keine Netzwerkanfragen. Die einzige Anfrage ist die optionale Pro-Lizenzprüfung an <code>api.annmax1983.com</code> bei Aktivierung und etwa alle zwei Stunden danach. Sie enthält Lizenzschlüssel, zufällige Installations-ID und Browser-Metadaten (Browser, Sprache, Zeitzone, UA) — niemals Sitzungen, Titel oder URLs."},{"t":"Wer deine Sitzungen sehen kann","html":"Nur du, auf diesem Gerät. TabCoffer hat kein Kontosystem, keine Analyse, keine Werbung und keine Skripte Dritter. Sitzungen werden von TabCoffer nicht in eine Cloud synchronisiert."},{"t":"Daten entfernen","html":"Lösche einzelne Sitzungen jederzeit im Popup. Beim Deinstallieren der Erweiterung werden alle von TabCoffer gespeicherten Sitzungen und Einstellungen entfernt. Exportiere vorher eine JSON-Sicherung, wenn du sie behalten willst."},{"t":"Berechtigungen erklärt","html":"<code>tabs</code> liest Titel und Adressen der Tabs zum Speichern und Wiederöffnen. <code>storage</code> speichert Sitzungen lokal. <code>alarms</code> plant die periodische Lizenzprüfung für Pro-Nutzer."},{"t":"Kinder und sensible Daten","html":"TabCoffer richtet sich nicht an Kinder und erhebt nicht wissentlich personenbezogene Daten. Da eine Sitzung jede von dir gespeicherte URL enthalten kann, vermeide auf geteilten Geräten Seiten mit sensiblen Informationen."},{"t":"Kontakt","html":"Datenschutzfragen: support@annmax1983.com."}],"ui":{"navFeatures":"Funktionen","navPlans":"Tarife","navPrivacy":"Datenschutz","navSupport":"Support","eyebrow":"Datenschutzerklärung","title":"Deine Tabs bleiben auf deinem Gerät","lead":"In einfacher Sprache: was TabCoffer speichert, was es liest und wann es das Netz nutzt.","lastUpdated":"Zuletzt aktualisiert","navTitle":"Auf dieser Seite","ctaGet":"TabCoffer holen","footerMore":"Weitere Tools","footerPrivacy":"Datenschutz","footerGithub":"Repository","footerSite":"Offizielle Website"}},"es":{"summary":"TabCoffer mantiene tus sesiones de pestañas en tu dispositivo. Solo lee títulos, direcciones e iconos de las pestañas y nunca envía tus sesiones a ningún sitio.","sections":[{"t":"Qué se guarda","html":"Las sesiones —cada una con nombre, hora de creación y la lista de pestañas (título, URL, URL del icono, fijada)— se guardan en <code>chrome.storage.local</code> de tu dispositivo. Un pequeño objeto de ajustes recuerda el orden elegido. Nada se escribe en un servidor."},{"t":"Qué se lee","html":"Al guardar una sesión, TabCoffer solo lee el título, la dirección y el icono de las pestañas. Nunca lee contenido de páginas, formularios, cookies, historial ni marcadores."},{"t":"Acceso a la red","html":"Guardar, restaurar, buscar sesiones locales, renombrar y exportar no hacen peticiones de red. La única petición es la comprobación opcional de licencia Pro a <code>api.annmax1983.com</code> al activar y aproximadamente cada dos horas. Envía tu clave de licencia, un ID de instalación aleatorio y metadatos del navegador (navegador, idioma, zona horaria, user agent) — nunca tus sesiones, títulos ni URLs."},{"t":"Quién ve tus sesiones","html":"Solo tú, en este dispositivo. TabCoffer no tiene sistema de cuentas, analítica, publicidad ni scripts de terceros. TabCoffer no sincroniza tus sesiones con ningún servicio en la nube."},{"t":"Eliminar tus datos","html":"Borra sesiones individuales desde el popup cuando quieras. Al desinstalar la extensión se eliminan todas las sesiones y ajustes guardados por TabCoffer. Exporta antes una copia JSON si quieres conservarlos."},{"t":"Permisos explicados","html":"<code>tabs</code> lee títulos y direcciones para guardar y reabrir. <code>storage</code> guarda las sesiones localmente. <code>alarms</code> programa la comprobación periódica de licencia para usuarios Pro."},{"t":"Menores y datos sensibles","html":"TabCoffer no va dirigido a menores y no recopila datos personales a sabiendas. Como una sesión puede contener cualquier URL que decidas guardar, evita guardar páginas con información sensible si compartes el dispositivo."},{"t":"Contacto","html":"Preguntas sobre privacidad: support@annmax1983.com."}],"ui":{"navFeatures":"Funciones","navPlans":"Planes","navPrivacy":"Privacidad","navSupport":"Soporte","eyebrow":"Política de privacidad","title":"Tus pestañas se quedan en tu dispositivo","lead":"Explicación sencilla de qué guarda TabCoffer, qué lee y cuándo usa la red.","lastUpdated":"Última actualización","navTitle":"En esta página","ctaGet":"Obtener TabCoffer","footerMore":"Más herramientas","footerPrivacy":"Privacidad","footerGithub":"Repositorio","footerSite":"Sitio oficial"}},"fr":{"summary":"TabCoffer conserve vos sessions d’onglets sur votre appareil. Il ne lit que les titres, adresses et icônes des onglets et n’envoie jamais vos sessions ailleurs.","sections":[{"t":"Ce qui est stocké","html":"Les sessions — chacune avec un nom, une date de création et la liste des onglets (titre, URL, URL de l’icône, épinglé) — sont stockées dans <code>chrome.storage.local</code> de votre appareil. Un petit objet de paramètres mémorise le tri choisi. Rien n’est écrit sur un serveur."},{"t":"Ce qui est lu","html":"Lors de l’enregistrement, TabCoffer lit uniquement le titre, l’adresse et l’icône des onglets. Il ne lit jamais le contenu des pages, les formulaires, les cookies, l’historique ni les favoris."},{"t":"Accès réseau","html":"Enregistrer, restaurer, rechercher dans les sessions locales, renommer et exporter ne génèrent aucune requête réseau. La seule requête est la vérification facultative de licence Pro vers <code>api.annmax1983.com</code> lors de l’activation et environ toutes les deux heures. Elle transmet votre clé de licence, un ID d’installation aléatoire et des métadonnées du navigateur (navigateur, langue, fuseau horaire, agent utilisateur) — jamais vos sessions, titres ni URL."},{"t":"Qui voit vos sessions","html":"Vous seul, sur cet appareil. TabCoffer n’a ni compte, ni analyse, ni publicité, ni script tiers. TabCoffer ne synchronise pas vos sessions vers un service cloud."},{"t":"Supprimer vos données","html":"Supprimez une session à tout moment depuis le popup. Désinstaller l’extension supprime toutes les sessions et paramètres enregistrés par TabCoffer. Exportez d’abord une sauvegarde JSON si vous voulez les garder."},{"t":"Permissions expliquées","html":"<code>tabs</code> lit les titres et adresses des onglets pour les enregistrer et les rouvrir. <code>storage</code> conserve les sessions localement. <code>alarms</code> programme la vérification périodique de licence pour les utilisateurs Pro."},{"t":"Enfants et données sensibles","html":"TabCoffer ne s’adresse pas aux enfants et ne collecte pas sciemment de données personnelles. Une session pouvant contenir n’importe quelle URL que vous choisissez d’enregistrer, évitez les pages contenant des informations sensibles sur un appareil partagé."},{"t":"Contact","html":"Questions sur la confidentialité : support@annmax1983.com."}],"ui":{"navFeatures":"Fonctions","navPlans":"Offres","navPrivacy":"Confidentialité","navSupport":"Assistance","eyebrow":"Politique de confidentialité","title":"Vos onglets restent sur votre appareil","lead":"En clair : ce que TabCoffer stocke, ce qu’il lit et quand il utilise le réseau.","lastUpdated":"Dernière mise à jour","navTitle":"Sur cette page","ctaGet":"Obtenir TabCoffer","footerMore":"Autres outils","footerPrivacy":"Confidentialité","footerGithub":"Dépôt","footerSite":"Site officiel"}}},"staticOnly":false,"name":"TabCoffer","icon":"icons/icon128.png","github":"https://github.com/annmax1983/TabCoffer","site":"https://annmax1983.com/extensions/tabcoffer","support":"https://ko-fi.com/annmax?buyACoffee=true&ref=tabcoffer","slug":"tabcoffer"};
+const UI_ALL = {"en":{"privacyTitle":"Privacy","home":"Home","onThisPage":"On this page","lastUpdated":"Last updated: November 2026","chips":["Runs on your device","No analytics","No account","Licence optional"],"permissionsTitle":"Permissions","permissionsIntro":"The extension requests only these permissions:","retentionTitle":"Data retention & deletion","retentionBody":"Your settings and content stay in your browser until you delete them in the extension or uninstall it. Uninstalling removes the extension's local data. Nothing is retained on our servers, because your content is never sent to them.","syncCaveat":"If you enabled a feature that uses your browser account's sync, a copy may remain in that account. You can manage or remove it in your browser's sync settings.","changesTitle":"Changes to this policy","changesBody":"If this policy changes, the revised version will be published on this page with a new date. Material changes will be noted in the extension's release notes.","contactTitle":"Contact","contactBody":"Questions about this policy? Email <a href=\"mailto:support@annmax1983.com\">support@annmax1983.com</a> or open an issue on <a href=\"{github}\" target=\"_blank\" rel=\"noopener\">GitHub</a>.","footerHome":"Get TabCoffer","footerGithub":"Repository","footerSite":"Official site","footerEmail":"Email","index":{"navFeatures":"Features","navPlans":"Plans","navPrivacy":"Privacy","navSupport":"Support","eyebrow":"Local-first tab sessions","badgeFree":"Free tier available","badgeLocal":"100% local storage","badgeNoTrack":"No tracking","badgeBrowsers":"Chrome · Edge · Firefox","ctaGet":"Get it free","ctaPrivacy":"Privacy policy","ctaSource":"Source note","featuresTitle":"Your tabs, put away safely","featuresLead":"Save a whole working set in a moment, then take it back exactly when you need it.","moreTitle":"Why people keep it","proLabel":"Pro","freeLabel":"Free","premiumLabel":"Pro","planTitle":"Simple plans","planLead":"Save and restore sessions for free. Pro is for people who live in sessions.","privacyTitle":"Private by default","privacyLead":"Sessions stay on your device. The extension never reads what is on the pages.","privacyPoints":["Sessions are stored only in your browser storage on this device.","No page content, form fields or browsing history are read.","The only network call is an optional Pro licence check."],"privacyCta":"Read the privacy policy","supportEyebrow":"Support the project","supportHint":"If TabCoffer saves you time, a coffee keeps it maintained.","footerMore":"More tools","footerPrivacy":"Privacy","footerGithub":"Repository","footerSite":"Official site"}},"zh":{"privacyTitle":"隐私","home":"Home","onThisPage":"本页内容","lastUpdated":"最后更新: November 2026","chips":["在你的设备上运行","无统计追踪","无需账号","授权可选"],"permissionsTitle":"权限说明","permissionsIntro":"扩展只请求以下权限：","retentionTitle":"数据保留与删除","retentionBody":"你的设置和内容保存在浏览器中，直到你在扩展内删除它们或卸载扩展。卸载会清除扩展的本地数据。我们的服务器不保留任何内容，因为你的内容从不会发送到那里。","syncCaveat":"如果你启用了使用浏览器账号同步的功能，该账号中可能保留一份副本，可在浏览器的同步设置中管理或删除。","changesTitle":"政策变更","changesBody":"如果本政策发生变更，修订后的版本会发布在本页并更新日期。重要变更会在扩展的版本说明中注明。","contactTitle":"联系我们","contactBody":"对本政策有疑问？请发邮件至 <a href=\"mailto:support@annmax1983.com\">support@annmax1983.com</a>，或在 <a href=\"{github}\" target=\"_blank\" rel=\"noopener\">GitHub</a> 提交 issue。","footerHome":"获取 TabCoffer","footerGithub":"仓库","footerSite":"官网","footerEmail":"邮件","index":{"navFeatures":"功能","navPlans":"方案","navPrivacy":"隐私","navSupport":"支持","eyebrow":"本地优先的标签会话","badgeFree":"免费版可用","badgeLocal":"100% 本地存储","badgeNoTrack":"无追踪","badgeBrowsers":"Chrome · Edge · Firefox","ctaGet":"免费获取","ctaPrivacy":"隐私政策","ctaSource":"源码说明","featuresTitle":"把标签稳妥收起来","featuresLead":"瞬间存下整套工作现场，需要时原样取回。","moreTitle":"为什么留下它","proLabel":"Pro","freeLabel":"免费","premiumLabel":"Pro","planTitle":"简单的方案","planLead":"保存与恢复会话免费。Pro 给重度会话用户。","privacyTitle":"默认私密","privacyLead":"会话只留在你的设备上，扩展从不读取页面内容。","privacyPoints":["会话只保存在本机浏览器存储中。","不读取网页正文、表单或浏览历史。","唯一的网络请求是可选的 Pro 许可证校验。"],"privacyCta":"阅读隐私政策","supportEyebrow":"支持这个项目","supportHint":"如果 TabCoffer 帮你省了时间，一杯咖啡能让它继续维护。","footerMore":"更多工具","footerPrivacy":"隐私","footerGithub":"仓库","footerSite":"官网"}},"ja":{"privacyTitle":"プライバシー","home":"Home","onThisPage":"このページの内容","lastUpdated":"最終更新: November 2026","chips":["端末上で動作","分析なし","アカウント不要","ライセンスは任意"],"permissionsTitle":"権限","permissionsIntro":"この拡張機能が要求する権限は次のとおりです：","retentionTitle":"データの保存期間と削除","retentionBody":"設定とコンテンツは、拡張機能内で削除するかアンインストールするまでブラウザに保存されます。アンインストールすると拡張機能のローカルデータは削除されます。コンテンツがサーバーへ送信されることはないため、当方のサーバーには何も保持されません。","syncCaveat":"ブラウザのアカウント同期を使う機能を有効にした場合、そのアカウントにコピーが残ることがあります。ブラウザの同期設定から管理・削除できます。","changesTitle":"ポリシーの変更","changesBody":"このポリシーを変更する場合は、改訂版をこのページに新しい日付で掲載します。重要な変更は拡張機能のリリースノートにも記載します。","contactTitle":"お問い合わせ","contactBody":"このポリシーについてのご質問は、<a href=\"mailto:support@annmax1983.com\">support@annmax1983.com</a> へメールするか、<a href=\"{github}\" target=\"_blank\" rel=\"noopener\">GitHub</a> で issue を作成してください。","footerHome":"TabCoffer を入手","footerGithub":"リポジトリ","footerSite":"公式サイト","footerEmail":"メール","index":{"navFeatures":"機能","navPlans":"プラン","navPrivacy":"プライバシー","navSupport":"サポート","eyebrow":"ローカル優先のタブセッション","badgeFree":"無料版あり","badgeLocal":"100% ローカル保存","badgeNoTrack":"トラッキングなし","badgeBrowsers":"Chrome · Edge · Firefox","ctaGet":"無料で入手","ctaPrivacy":"プライバシーポリシー","ctaSource":"ソースについて","featuresTitle":"タブを安全に片付ける","featuresLead":"作業セットを一瞬で保存し、必要なときにそのまま戻せます。","moreTitle":"選ばれる理由","proLabel":"Pro","freeLabel":"無料","premiumLabel":"Pro","planTitle":"シンプルなプラン","planLead":"保存と復元は無料。Pro はセッションを多用する人へ。","privacyTitle":"最初からプライベート","privacyLead":"セッションは端末内に留まり、ページ内容は読みません。","privacyPoints":["セッションはこの端末のブラウザーストレージにのみ保存。","本文・フォーム・履歴は読み取りません。","ネットワーク通信は任意の Pro ライセンス確認のみ。"],"privacyCta":"プライバシーポリシーを読む","supportEyebrow":"プロジェクトを支援","supportHint":"TabCoffer で時間が節約できたら、コーヒーで維持を支えてください。","footerMore":"他のツール","footerPrivacy":"プライバシー","footerGithub":"リポジトリ","footerSite":"公式サイト"}},"de":{"privacyTitle":"Datenschutz","home":"Home","onThisPage":"Auf dieser Seite","lastUpdated":"Zuletzt aktualisiert: November 2026","chips":["Läuft auf deinem Gerät","Keine Analyse","Kein Konto","Lizenz optional"],"permissionsTitle":"Berechtigungen","permissionsIntro":"Die Erweiterung fordert nur diese Berechtigungen an:","retentionTitle":"Aufbewahrung und Löschung","retentionBody":"Deine Einstellungen und Inhalte bleiben im Browser, bis du sie in der Erweiterung löschst oder sie deinstallierst. Beim Deinstallieren werden die lokalen Daten der Erweiterung entfernt. Auf unseren Servern wird nichts aufbewahrt, weil deine Inhalte nie dorthin gesendet werden.","syncCaveat":"Wenn du eine Funktion mit der Kontosynchronisierung deines Browsers aktiviert hast, kann eine Kopie in diesem Konto verbleiben. Du kannst sie in den Synchronisierungseinstellungen deines Browsers verwalten oder löschen.","changesTitle":"Änderungen dieser Erklärung","changesBody":"Wenn sich diese Erklärung ändert, wird die überarbeitete Fassung mit einem neuen Datum auf dieser Seite veröffentlicht. Wesentliche Änderungen werden in den Versionshinweisen der Erweiterung genannt.","contactTitle":"Kontakt","contactBody":"Fragen zu dieser Erklärung? Schreib an <a href=\"mailto:support@annmax1983.com\">support@annmax1983.com</a> oder öffne ein Issue auf <a href=\"{github}\" target=\"_blank\" rel=\"noopener\">GitHub</a>.","footerHome":"TabCoffer holen","footerGithub":"Repository","footerSite":"Offizielle Website","footerEmail":"E-Mail","index":{"navFeatures":"Funktionen","navPlans":"Tarife","navPrivacy":"Datenschutz","navSupport":"Support","eyebrow":"Lokal-first Tab-Sitzungen","badgeFree":"Kostenlose Stufe","badgeLocal":"100 % lokaler Speicher","badgeNoTrack":"Kein Tracking","badgeBrowsers":"Chrome · Edge · Firefox","ctaGet":"Kostenlos holen","ctaPrivacy":"Datenschutz","ctaSource":"Zum Quellcode","featuresTitle":"Tabs sicher verstaut","featuresLead":"Ein Arbeitsensatz in Sekunden — und genau dann zurück, wenn du ihn brauchst.","moreTitle":"Warum er bleibt","proLabel":"Pro","freeLabel":"Kostenlos","premiumLabel":"Pro","planTitle":"Einfache Tarife","planLead":"Sitzungen speichern und wiederherstellen ist kostenlos. Pro ist für Vielnutzer.","privacyTitle":"Privat von Anfang an","privacyLead":"Sitzungen bleiben auf deinem Gerät; Seiteninhalte werden nie gelesen.","privacyPoints":["Sitzungen liegen nur im Browserspeicher dieses Geräts.","Keine Seiteninhalte, Formulare oder Verläufe werden gelesen.","Die einzige Netzwerkanfrage ist die optionale Pro-Lizenzprüfung."],"privacyCta":"Datenschutzerklärung lesen","supportEyebrow":"Projekt unterstützen","supportHint":"Wenn TabCoffer dir Zeit spart, hilft ein Kaffee bei der Wartung.","footerMore":"Weitere Tools","footerPrivacy":"Datenschutz","footerGithub":"Repository","footerSite":"Offizielle Website"}},"es":{"privacyTitle":"Privacidad","home":"Home","onThisPage":"En esta página","lastUpdated":"Última actualización: November 2026","chips":["Se ejecuta en tu dispositivo","Sin analíticas","Sin cuenta","Licencia opcional"],"permissionsTitle":"Permisos","permissionsIntro":"La extensión solo solicita estos permisos:","retentionTitle":"Conservación y eliminación de datos","retentionBody":"Tus ajustes y contenidos permanecen en el navegador hasta que los elimines en la extensión o la desinstales. Al desinstalarla se borran los datos locales de la extensión. No conservamos nada en nuestros servidores porque tus contenidos nunca se envían allí.","syncCaveat":"Si activaste una función que usa la sincronización de la cuenta del navegador, puede quedar una copia en esa cuenta. Puedes gestionarla o eliminarla en los ajustes de sincronización del navegador.","changesTitle":"Cambios en esta política","changesBody":"Si esta política cambia, la versión revisada se publicará en esta página con una nueva fecha. Los cambios importantes se indicarán en las notas de la versión de la extensión.","contactTitle":"Contacto","contactBody":"¿Preguntas sobre esta política? Escribe a <a href=\"mailto:support@annmax1983.com\">support@annmax1983.com</a> o abre un issue en <a href=\"{github}\" target=\"_blank\" rel=\"noopener\">GitHub</a>.","footerHome":"Obtener TabCoffer","footerGithub":"Repositorio","footerSite":"Sitio oficial","footerEmail":"Correo","index":{"navFeatures":"Funciones","navPlans":"Planes","navPrivacy":"Privacidad","navSupport":"Soporte","eyebrow":"Sesiones de pestañas local-first","badgeFree":"Plan gratuito","badgeLocal":"100 % local","badgeNoTrack":"Sin seguimiento","badgeBrowsers":"Chrome · Edge · Firefox","ctaGet":"Obtener gratis","ctaPrivacy":"Privacidad","ctaSource":"Nota sobre el código","featuresTitle":"Tus pestañas, bien guardadas","featuresLead":"Guarda un conjunto de trabajo en un momento y recupéralo cuando lo necesites.","moreTitle":"Por qué se queda","proLabel":"Pro","freeLabel":"Gratis","premiumLabel":"Pro","planTitle":"Planes sencillos","planLead":"Guardar y restaurar sesiones es gratis. Pro es para quien vive de ellas.","privacyTitle":"Privado por defecto","privacyLead":"Las sesiones se quedan en tu dispositivo; la extensión nunca lee las páginas.","privacyPoints":["Las sesiones solo se guardan en tu navegador, en este dispositivo.","No se leen páginas, formularios ni historial.","La única petición de red es la comprobación opcional de licencia Pro."],"privacyCta":"Leer la privacidad","supportEyebrow":"Apoya el proyecto","supportHint":"Si TabCoffer te ahorra tiempo, un café ayuda a mantenerlo.","footerMore":"Más herramientas","footerPrivacy":"Privacidad","footerGithub":"Repositorio","footerSite":"Sitio oficial"}},"fr":{"privacyTitle":"Confidentialité","home":"Home","onThisPage":"Sur cette page","lastUpdated":"Dernière mise à jour: November 2026","chips":["Fonctionne sur votre appareil","Aucune analyse","Sans compte","Licence facultative"],"permissionsTitle":"Autorisations","permissionsIntro":"L'extension ne demande que ces autorisations :","retentionTitle":"Conservation et suppression des données","retentionBody":"Vos réglages et contenus restent dans le navigateur jusqu'à ce que vous les supprimiez dans l'extension ou que vous la désinstalliez. La désinstallation efface les données locales de l'extension. Rien n'est conservé sur nos serveurs, car vos contenus ne leur sont jamais envoyés.","syncCaveat":"Si vous avez activé une fonction qui utilise la synchronisation du compte de votre navigateur, une copie peut subsister dans ce compte. Vous pouvez la gérer ou la supprimer dans les réglages de synchronisation du navigateur.","changesTitle":"Modifications de cette politique","changesBody":"Si cette politique change, la version révisée sera publiée sur cette page avec une nouvelle date. Les changements importants seront signalés dans les notes de version de l'extension.","contactTitle":"Contact","contactBody":"Des questions sur cette politique ? Écrivez à <a href=\"mailto:support@annmax1983.com\">support@annmax1983.com</a> ou ouvrez un ticket sur <a href=\"{github}\" target=\"_blank\" rel=\"noopener\">GitHub</a>.","footerHome":"Obtenir TabCoffer","footerGithub":"Dépôt","footerSite":"Site officiel","footerEmail":"E-mail","index":{"navFeatures":"Fonctions","navPlans":"Offres","navPrivacy":"Confidentialité","navSupport":"Assistance","eyebrow":"Sessions d’onglets local-first","badgeFree":"Offre gratuite","badgeLocal":"100 % local","badgeNoTrack":"Aucun suivi","badgeBrowsers":"Chrome · Edge · Firefox","ctaGet":"Obtenir gratuitement","ctaPrivacy":"Confidentialité","ctaSource":"À propos du code","featuresTitle":"Vos onglets, bien rangés","featuresLead":"Rangez un ensemble de travail en un instant et retrouvez-le au bon moment.","moreTitle":"Pourquoi il reste","proLabel":"Pro","freeLabel":"Gratuit","premiumLabel":"Pro","planTitle":"Des offres simples","planLead":"Enregistrer et restaurer des sessions est gratuit. Pro s’adresse aux utilisateurs intensifs.","privacyTitle":"Privé par défaut","privacyLead":"Les sessions restent sur votre appareil ; l’extension ne lit jamais les pages.","privacyPoints":["Les sessions ne sont stockées que dans votre navigateur, sur cet appareil.","Aucune page, formulaire ou historique n’est lu.","La seule requête réseau est la vérification facultative de licence Pro."],"privacyCta":"Lire la confidentialité","supportEyebrow":"Soutenir le projet","supportHint":"Si TabCoffer vous fait gagner du temps, un café aide à sa maintenance.","footerMore":"Autres outils","footerPrivacy":"Confidentialité","footerGithub":"Dépôt","footerSite":"Site officiel"}}};
+const CONFIG = {"name":"TabCoffer","github":"https://github.com/annmax1983/TabCoffer","icon":"icons/icon128.png","site":"https://annmax1983.com/extensions/tabcoffer"};
+const LANG_KEY = "vkt-tabcoffer-lang";
+(function () {
+  "use strict";
+
+  var select = document.getElementById("p-lang");
+  var observer = null;
+  var ui = function (lang) { return UI_ALL[lang] || UI_ALL.en; };
+
+  function esc(value) {
+    return String(value == null ? "" : value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function setText(id, value) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = value == null ? "" : value;
+  }
+
+  function detect() {
+    var codes = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
+    for (var i = 0; i < codes.length; i++) {
+      var code = String(codes[i] || "").toLowerCase();
+      if (code.indexOf("zh") === 0) return "zh";
+      if (code.indexOf("ja") === 0) return "ja";
+      if (code.indexOf("de") === 0) return "de";
+      if (code.indexOf("es") === 0) return "es";
+      if (code.indexOf("fr") === 0) return "fr";
+      if (code.indexOf("en") === 0) return "en";
+    }
+    return "en";
+  }
+
+  function initToc() {
+    if (observer) observer.disconnect();
+    var links = Array.prototype.slice.call(document.querySelectorAll("#p-toc a"));
+    var cards = Array.prototype.slice.call(document.querySelectorAll(".policy-card"));
+    if (!links.length || !cards.length || typeof IntersectionObserver === "undefined") return;
+
+    function activate(id) {
+      links.forEach(function (link) {
+        link.classList.toggle("active", link.getAttribute("href") === "#" + id);
+      });
+    }
+
+    observer = new IntersectionObserver(function (entries) {
+      var visible = entries.filter(function (entry) { return entry.isIntersecting; });
+      if (visible.length) activate(visible[0].target.id);
+    }, { rootMargin: "-18% 0px -68% 0px", threshold: [0, 1] });
+
+    cards.forEach(function (card) { observer.observe(card); });
+    if (links[0]) links[0].classList.add("active");
+  }
+
+  function render(lang) {
+    var data = MODEL.langs[lang];
+    if (!data) return;
+    var u = ui(lang);
+
+    document.documentElement.lang = lang === "zh" ? "zh-CN" : lang;
+    document.title = CONFIG.name + " — " + u.privacyTitle;
+
+    setText("p-home", u.home);
+    setText("p-eyebrow", u.privacyTitle);
+    setText("p-h1", CONFIG.name);
+    setText("p-h1-sub", u.privacyTitle);
+    setText("p-updated", u.lastUpdated);
+    setText("p-toc-title", u.onThisPage);
+
+    var summary = document.getElementById("p-summary");
+    if (summary) summary.innerHTML = data.summary || "";
+
+    var chips = document.getElementById("p-chips");
+    if (chips) {
+      chips.innerHTML = u.chips.map(function (chip) {
+        return '<span class="chip">' + esc(chip) + "</span>";
+      }).join("");
+    }
+
+    setText("p-footer-home", u.footerHome);
+    setText("p-footer-privacy", u.privacyTitle);
+    setText("p-footer-github", u.footerGithub);
+    setText("p-footer-site", u.footerSite);
+    setText("p-footer-email", u.footerEmail || "Email");
+
+    var toc = document.getElementById("p-toc");
+    var sections = document.getElementById("p-sections");
+    if (!toc || !sections) return;
+    toc.innerHTML = "";
+    sections.innerHTML = "";
+
+    data.sections.forEach(function (section, index) {
+      var number = String(index + 1).padStart(2, "0");
+      var id = "section-" + (index + 1);
+
+      var link = document.createElement("a");
+      link.href = "#" + id;
+      link.innerHTML = "<span>" + number + "</span>" + esc(section.t);
+      toc.appendChild(link);
+
+      var card = document.createElement("article");
+      card.className = "policy-card";
+      card.id = id;
+      card.innerHTML = '<h2><span class="policy-num">' + number + "</span>" + esc(section.t) + '</h2><div class="policy-body">' + section.html + "</div>";
+      sections.appendChild(card);
+    });
+
+    initToc();
+  }
+
+  function storedLang() {
+    try { return localStorage.getItem(LANG_KEY); } catch (error) { return null; }
+  }
+
+  function remember(lang) {
+    try { localStorage.setItem(LANG_KEY, lang); } catch (error) { /* storage can be blocked */ }
+  }
+
+  initToc();
+
+  if (select) {
+    var saved = storedLang();
+    var initial = saved && MODEL.langs[saved] ? saved : detect();
+    if (!MODEL.langs[initial]) initial = "en";
+    select.value = initial;
+    if (initial !== "en") render(initial);
+    select.addEventListener("change", function () {
+      remember(select.value);
+      render(select.value);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+})();
+
+</script>
+</body>
+</html>
